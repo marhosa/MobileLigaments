@@ -7,16 +7,22 @@ Use Better Comments Extension para ez readability
 */
 
 
-
-
 #include <GL/glut.h>
 #include <iostream>
 using namespace std;
 
 
 
+// * YUNG MGA POSITIONS NG CHARACTERS ANDITO
+// * -----------------------------------------------
 
 
+
+int drawMarkLusterio_XPOS = 0;
+int drawMarkLusterio_YPOS = 0;
+
+int drawSprite_XPOS = 0;
+int drawSprite_YPOS = 0;
 
 
 
@@ -109,14 +115,24 @@ also 1,2,3,4,5,6 sa keyboard pupunta ka sa ibat ibang scene
 
 
 // gagawa ng pixel sa x and y location (1920 x 1080 reference)
-void drawPixel(int x, int y);
+// tapos may r g b color values
+void drawPixel(int x, int y, int r, int g, int b);
 /*
-Example Use:
-glColor3f(1.0f, 0.0f, 0.0f); // red
-drawPixel(0, 0);              // top-left pixel
-drawPixel(32, 18);            // center pixel
-drawPixel(63, 35);            // bottom-right pixel
+Example Use Case:
+drawPixel(32, 18, 255, 0, 0);   // red pixel in center
+drawPixel(0, 0, 0, 255, 0);     // green pixel at top-left
+drawPixel(63, 35, 0, 0, 255);   // blue pixel at bottom-right
 */
+
+
+
+
+
+
+// * Asset Declarations:
+void drawMarkLusterio();
+void drawSprite();
+
 
 
 
@@ -158,11 +174,13 @@ void Display_Intro() {
     glColor3f(0.0f, 0.0f, 0.0f);
     drawText(0, 0, "MARK INTRO SCENE SCANDAL");
 
+    drawMarkLusterio();
 
-    glColor3f(1.0f, 0.0f, 0.0f); // red
-    drawPixel(10, 12);              // top-left pixel
-    drawPixel(32, 18);            // center pixel
-    drawPixel(60, 35);            // bottom-right pixel
+
+
+
+
+
 
 
 }
@@ -173,6 +191,10 @@ void Display_Chapter_1() {
     // TODO: Mark runs away from the tornado
     glColor3f(0.0f, 0.0f, 0.0f);
     drawText(0, 0, "MARK TAKBO SA TORNADO KASI TAKOT");
+
+    drawSprite();
+
+
 
 }
 
@@ -400,7 +422,7 @@ void drawText(float x, float y, const std::string& text)
 
 // ? Draw a single pixel on the 64x36 pixel canvas
 // ? x, y are in canvas coordinates (0..Pixel_width, 0..pixel_height)
-void drawPixel(int x, int y) {
+void drawPixel(int x, int y, int r, int g, int b) {
     // Size of each pixel in screen space
     float pixelWidth = WIN_WIDTH / (float)PIXEL_WIDTH;
     float pixelHeight = WIN_HEIGHT / (float)PIXEL_HEIGHT;
@@ -418,19 +440,14 @@ void drawPixel(int x, int y) {
 
     // Draw a quad
     glBegin(GL_QUADS);
+    glColor3f(r / 255.0f, g / 255.0f, b / 255.0f);
     glVertex2f(nx - halfSizeX, ny - halfSizeY);
     glVertex2f(nx + halfSizeX, ny - halfSizeY);
     glVertex2f(nx + halfSizeX, ny + halfSizeY);
     glVertex2f(nx - halfSizeX, ny + halfSizeY);
     glEnd();
 }
-/*
-Example Use:
-glColor3f(1.0f, 0.0f, 0.0f); // red
-drawPixel(0, 0);              // top-left pixel
-drawPixel(32, 18);            // center pixel
-drawPixel(63, 35);            // bottom-right pixel
-*/
+
 
 
 
@@ -653,3 +670,313 @@ int main(int argc, char** argv) {
     return 0;
 }
 // * ---------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// * Mark asset
+void drawMarkLusterio() {
+    drawPixel(20 + drawMarkLusterio_XPOS, 8 + drawMarkLusterio_YPOS, 153, 0, 48);
+    drawPixel(21 + drawMarkLusterio_XPOS, 8 + drawMarkLusterio_YPOS, 153, 0, 49);
+    drawPixel(22 + drawMarkLusterio_XPOS, 8 + drawMarkLusterio_YPOS, 152, 0, 48);
+    drawPixel(23 + drawMarkLusterio_XPOS, 8 + drawMarkLusterio_YPOS, 153, 0, 48);
+    drawPixel(24 + drawMarkLusterio_XPOS, 8 + drawMarkLusterio_YPOS, 153, 0, 49);
+    drawPixel(25 + drawMarkLusterio_XPOS, 8 + drawMarkLusterio_YPOS, 153, 0, 48);
+    drawPixel(26 + drawMarkLusterio_XPOS, 8 + drawMarkLusterio_YPOS, 153, 0, 48);
+
+    drawPixel(20 + drawMarkLusterio_XPOS, 9 + drawMarkLusterio_YPOS, 153, 0, 48);
+    drawPixel(21 + drawMarkLusterio_XPOS, 9 + drawMarkLusterio_YPOS, 153, 0, 48);
+    drawPixel(22 + drawMarkLusterio_XPOS, 9 + drawMarkLusterio_YPOS, 153, 0, 48);
+    drawPixel(23 + drawMarkLusterio_XPOS, 9 + drawMarkLusterio_YPOS, 153, 0, 48);
+    drawPixel(24 + drawMarkLusterio_XPOS, 9 + drawMarkLusterio_YPOS, 153, 0, 48);
+    drawPixel(25 + drawMarkLusterio_XPOS, 9 + drawMarkLusterio_YPOS, 153, 1, 48);
+    drawPixel(26 + drawMarkLusterio_XPOS, 9 + drawMarkLusterio_YPOS, 153, 0, 48);
+
+    drawPixel(21 + drawMarkLusterio_XPOS, 10 + drawMarkLusterio_YPOS, 153, 1, 48);
+    drawPixel(22 + drawMarkLusterio_XPOS, 10 + drawMarkLusterio_YPOS, 153, 0, 48);
+    drawPixel(23 + drawMarkLusterio_XPOS, 10 + drawMarkLusterio_YPOS, 152, 0, 48);
+    drawPixel(24 + drawMarkLusterio_XPOS, 10 + drawMarkLusterio_YPOS, 153, 1, 48);
+    drawPixel(25 + drawMarkLusterio_XPOS, 10 + drawMarkLusterio_YPOS, 153, 0, 48);
+
+    drawPixel(21 + drawMarkLusterio_XPOS, 11 + drawMarkLusterio_YPOS, 0, 0, 0);
+    drawPixel(25 + drawMarkLusterio_XPOS, 11 + drawMarkLusterio_YPOS, 0, 0, 0);
+
+    drawPixel(21 + drawMarkLusterio_XPOS, 12 + drawMarkLusterio_YPOS, 1, 0, 0);
+    drawPixel(25 + drawMarkLusterio_XPOS, 12 + drawMarkLusterio_YPOS, 0, 0, 0);
+
+    drawPixel(21 + drawMarkLusterio_XPOS, 13 + drawMarkLusterio_YPOS, 0, 1, 0);
+    drawPixel(25 + drawMarkLusterio_XPOS, 13 + drawMarkLusterio_YPOS, 0, 0, 0);
+
+    drawPixel(21 + drawMarkLusterio_XPOS, 14 + drawMarkLusterio_YPOS, 0, 0, 0);
+    drawPixel(22 + drawMarkLusterio_XPOS, 14 + drawMarkLusterio_YPOS, 1, 0, 0);
+    drawPixel(23 + drawMarkLusterio_XPOS, 14 + drawMarkLusterio_YPOS, 0, 1, 0);
+    drawPixel(24 + drawMarkLusterio_XPOS, 14 + drawMarkLusterio_YPOS, 0, 0, 0);
+    drawPixel(25 + drawMarkLusterio_XPOS, 14 + drawMarkLusterio_YPOS, 0, 0, 0);
+
+    drawPixel(23 + drawMarkLusterio_XPOS, 15 + drawMarkLusterio_YPOS, 0, 0, 1);
+
+    drawPixel(22 + drawMarkLusterio_XPOS, 16 + drawMarkLusterio_YPOS, 255, 126, 1);
+    drawPixel(23 + drawMarkLusterio_XPOS, 16 + drawMarkLusterio_YPOS, 255, 126, 0);
+    drawPixel(24 + drawMarkLusterio_XPOS, 16 + drawMarkLusterio_YPOS, 255, 126, 0);
+
+    drawPixel(21 + drawMarkLusterio_XPOS, 17 + drawMarkLusterio_YPOS, 0, 0, 0);
+    drawPixel(23 + drawMarkLusterio_XPOS, 17 + drawMarkLusterio_YPOS, 255, 126, 0);
+    drawPixel(25 + drawMarkLusterio_XPOS, 17 + drawMarkLusterio_YPOS, 0, 0, 0);
+
+    drawPixel(21 + drawMarkLusterio_XPOS, 18 + drawMarkLusterio_YPOS, 1, 0, 0);
+    drawPixel(23 + drawMarkLusterio_XPOS, 18 + drawMarkLusterio_YPOS, 255, 126, 0);
+    drawPixel(25 + drawMarkLusterio_XPOS, 18 + drawMarkLusterio_YPOS, 0, 1, 0);
+
+    drawPixel(23 + drawMarkLusterio_XPOS, 19 + drawMarkLusterio_YPOS, 254, 126, 0);
+
+    drawPixel(22 + drawMarkLusterio_XPOS, 20 + drawMarkLusterio_YPOS, 34, 177, 76);
+    drawPixel(24 + drawMarkLusterio_XPOS, 20 + drawMarkLusterio_YPOS, 34, 177, 76);
+
+    drawPixel(21 + drawMarkLusterio_XPOS, 21 + drawMarkLusterio_YPOS, 35, 177, 76);
+    drawPixel(25 + drawMarkLusterio_XPOS, 21 + drawMarkLusterio_YPOS, 34, 176, 76);
+
+    drawPixel(21 + drawMarkLusterio_XPOS, 22 + drawMarkLusterio_YPOS, 34, 176, 76);
+    drawPixel(25 + drawMarkLusterio_XPOS, 22 + drawMarkLusterio_YPOS, 34, 177, 77);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+void drawSprite() {
+    drawPixel(14 + drawSprite_XPOS, 7 + drawSprite_YPOS, 1, 0, 0);
+    drawPixel(19 + drawSprite_XPOS, 7 + drawSprite_YPOS, 1, 0, 0);
+    drawPixel(20 + drawSprite_XPOS, 7 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(21 + drawSprite_XPOS, 7 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(22 + drawSprite_XPOS, 7 + drawSprite_YPOS, 0, 0, 1);
+    drawPixel(23 + drawSprite_XPOS, 7 + drawSprite_YPOS, 1, 0, 0);
+
+    drawPixel(14 + drawSprite_XPOS, 8 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(15 + drawSprite_XPOS, 8 + drawSprite_YPOS, 0, 0, 1);
+    drawPixel(18 + drawSprite_XPOS, 8 + drawSprite_YPOS, 0, 0, 1);
+    drawPixel(19 + drawSprite_XPOS, 8 + drawSprite_YPOS, 157, 90, 60);
+    drawPixel(20 + drawSprite_XPOS, 8 + drawSprite_YPOS, 156, 91, 60);
+    drawPixel(21 + drawSprite_XPOS, 8 + drawSprite_YPOS, 156, 90, 61);
+    drawPixel(22 + drawSprite_XPOS, 8 + drawSprite_YPOS, 1, 0, 0);
+
+    drawPixel(14 + drawSprite_XPOS, 9 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(15 + drawSprite_XPOS, 9 + drawSprite_YPOS, 156, 90, 61);
+    drawPixel(16 + drawSprite_XPOS, 9 + drawSprite_YPOS, 1, 1, 0);
+    drawPixel(17 + drawSprite_XPOS, 9 + drawSprite_YPOS, 0, 1, 1);
+    drawPixel(18 + drawSprite_XPOS, 9 + drawSprite_YPOS, 1, 0, 0);
+    drawPixel(19 + drawSprite_XPOS, 9 + drawSprite_YPOS, 157, 90, 60);
+    drawPixel(20 + drawSprite_XPOS, 9 + drawSprite_YPOS, 156, 90, 61);
+    drawPixel(21 + drawSprite_XPOS, 9 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(22 + drawSprite_XPOS, 9 + drawSprite_YPOS, 0, 1, 0);
+
+    drawPixel(12 + drawSprite_XPOS, 10 + drawSprite_YPOS, 0, 1, 1);
+    drawPixel(14 + drawSprite_XPOS, 10 + drawSprite_YPOS, 1, 1, 0);
+    drawPixel(15 + drawSprite_XPOS, 10 + drawSprite_YPOS, 156, 91, 60);
+    drawPixel(16 + drawSprite_XPOS, 10 + drawSprite_YPOS, 157, 90, 61);
+    drawPixel(17 + drawSprite_XPOS, 10 + drawSprite_YPOS, 157, 90, 60);
+    drawPixel(18 + drawSprite_XPOS, 10 + drawSprite_YPOS, 156, 90, 60);
+    drawPixel(19 + drawSprite_XPOS, 10 + drawSprite_YPOS, 156, 90, 61);
+    drawPixel(20 + drawSprite_XPOS, 10 + drawSprite_YPOS, 157, 90, 60);
+    drawPixel(21 + drawSprite_XPOS, 10 + drawSprite_YPOS, 0, 0, 0);
+
+    drawPixel(11 + drawSprite_XPOS, 11 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(12 + drawSprite_XPOS, 11 + drawSprite_YPOS, 156, 90, 60);
+    drawPixel(13 + drawSprite_XPOS, 11 + drawSprite_YPOS, 1, 0, 0);
+    drawPixel(14 + drawSprite_XPOS, 11 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(15 + drawSprite_XPOS, 11 + drawSprite_YPOS, 156, 90, 60);
+    drawPixel(16 + drawSprite_XPOS, 11 + drawSprite_YPOS, 1, 0, 0);
+    drawPixel(17 + drawSprite_XPOS, 11 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(18 + drawSprite_XPOS, 11 + drawSprite_YPOS, 0, 0, 1);
+    drawPixel(19 + drawSprite_XPOS, 11 + drawSprite_YPOS, 156, 90, 60);
+    drawPixel(20 + drawSprite_XPOS, 11 + drawSprite_YPOS, 0, 0, 0);
+
+    drawPixel(11 + drawSprite_XPOS, 12 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(12 + drawSprite_XPOS, 12 + drawSprite_YPOS, 156, 90, 60);
+    drawPixel(13 + drawSprite_XPOS, 12 + drawSprite_YPOS, 157, 90, 60);
+    drawPixel(14 + drawSprite_XPOS, 12 + drawSprite_YPOS, 156, 90, 60);
+    drawPixel(15 + drawSprite_XPOS, 12 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(16 + drawSprite_XPOS, 12 + drawSprite_YPOS, 255, 249, 189);
+    drawPixel(17 + drawSprite_XPOS, 12 + drawSprite_YPOS, 255, 249, 188);
+    drawPixel(18 + drawSprite_XPOS, 12 + drawSprite_YPOS, 255, 249, 189);
+    drawPixel(19 + drawSprite_XPOS, 12 + drawSprite_YPOS, 0, 1, 0);
+
+    drawPixel(12 + drawSprite_XPOS, 13 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(13 + drawSprite_XPOS, 13 + drawSprite_YPOS, 156, 90, 60);
+    drawPixel(14 + drawSprite_XPOS, 13 + drawSprite_YPOS, 157, 91, 60);
+    drawPixel(15 + drawSprite_XPOS, 13 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(16 + drawSprite_XPOS, 13 + drawSprite_YPOS, 255, 249, 188);
+    drawPixel(17 + drawSprite_XPOS, 13 + drawSprite_YPOS, 255, 249, 189);
+    drawPixel(18 + drawSprite_XPOS, 13 + drawSprite_YPOS, 255, 248, 188);
+    drawPixel(19 + drawSprite_XPOS, 13 + drawSprite_YPOS, 1, 0, 0);
+
+    drawPixel(13 + drawSprite_XPOS, 14 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(14 + drawSprite_XPOS, 14 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(15 + drawSprite_XPOS, 14 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(16 + drawSprite_XPOS, 14 + drawSprite_YPOS, 254, 249, 189);
+    drawPixel(17 + drawSprite_XPOS, 14 + drawSprite_YPOS, 255, 249, 189);
+    drawPixel(18 + drawSprite_XPOS, 14 + drawSprite_YPOS, 255, 249, 188);
+    drawPixel(19 + drawSprite_XPOS, 14 + drawSprite_YPOS, 1, 0, 0);
+
+    drawPixel(16 + drawSprite_XPOS, 15 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(17 + drawSprite_XPOS, 15 + drawSprite_YPOS, 0, 1, 1);
+    drawPixel(18 + drawSprite_XPOS, 15 + drawSprite_YPOS, 1, 0, 0);
+
+    drawPixel(17 + drawSprite_XPOS, 16 + drawSprite_YPOS, 1, 0, 0);
+
+    drawPixel(15 + drawSprite_XPOS, 17 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(16 + drawSprite_XPOS, 17 + drawSprite_YPOS, 1, 0, 0);
+    drawPixel(17 + drawSprite_XPOS, 17 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(18 + drawSprite_XPOS, 17 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(19 + drawSprite_XPOS, 17 + drawSprite_YPOS, 1, 0, 0);
+
+    drawPixel(14 + drawSprite_XPOS, 18 + drawSprite_YPOS, 0, 1, 1);
+    drawPixel(17 + drawSprite_XPOS, 18 + drawSprite_YPOS, 0, 0, 1);
+    drawPixel(20 + drawSprite_XPOS, 18 + drawSprite_YPOS, 0, 0, 1);
+
+    drawPixel(14 + drawSprite_XPOS, 19 + drawSprite_YPOS, 1, 1, 0);
+    drawPixel(17 + drawSprite_XPOS, 19 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(20 + drawSprite_XPOS, 19 + drawSprite_YPOS, 1, 0, 0);
+
+    drawPixel(16 + drawSprite_XPOS, 20 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(17 + drawSprite_XPOS, 20 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(18 + drawSprite_XPOS, 20 + drawSprite_YPOS, 0, 0, 1);
+
+    drawPixel(15 + drawSprite_XPOS, 21 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(16 + drawSprite_XPOS, 21 + drawSprite_YPOS, 254, 127, 0);
+    drawPixel(17 + drawSprite_XPOS, 21 + drawSprite_YPOS, 255, 126, 0);
+    drawPixel(18 + drawSprite_XPOS, 21 + drawSprite_YPOS, 255, 126, 1);
+    drawPixel(19 + drawSprite_XPOS, 21 + drawSprite_YPOS, 0, 0, 0);
+
+    drawPixel(14 + drawSprite_XPOS, 22 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(15 + drawSprite_XPOS, 22 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(16 + drawSprite_XPOS, 22 + drawSprite_YPOS, 254, 126, 0);
+    drawPixel(17 + drawSprite_XPOS, 22 + drawSprite_YPOS, 254, 126, 0);
+    drawPixel(18 + drawSprite_XPOS, 22 + drawSprite_YPOS, 255, 126, 1);
+    drawPixel(19 + drawSprite_XPOS, 22 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(20 + drawSprite_XPOS, 22 + drawSprite_YPOS, 0, 0, 0);
+
+    drawPixel(13 + drawSprite_XPOS, 23 + drawSprite_YPOS, 1, 0, 0);
+    drawPixel(14 + drawSprite_XPOS, 23 + drawSprite_YPOS, 255, 127, 0);
+    drawPixel(15 + drawSprite_XPOS, 23 + drawSprite_YPOS, 255, 126, 1);
+    drawPixel(16 + drawSprite_XPOS, 23 + drawSprite_YPOS, 255, 126, 0);
+    drawPixel(17 + drawSprite_XPOS, 23 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(18 + drawSprite_XPOS, 23 + drawSprite_YPOS, 255, 126, 1);
+    drawPixel(19 + drawSprite_XPOS, 23 + drawSprite_YPOS, 254, 126, 0);
+    drawPixel(20 + drawSprite_XPOS, 23 + drawSprite_YPOS, 255, 127, 0);
+    drawPixel(21 + drawSprite_XPOS, 23 + drawSprite_YPOS, 0, 0, 1);
+
+    drawPixel(13 + drawSprite_XPOS, 24 + drawSprite_YPOS, 1, 1, 0);
+    drawPixel(14 + drawSprite_XPOS, 24 + drawSprite_YPOS, 255, 127, 1);
+    drawPixel(15 + drawSprite_XPOS, 24 + drawSprite_YPOS, 255, 126, 1);
+    drawPixel(16 + drawSprite_XPOS, 24 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(18 + drawSprite_XPOS, 24 + drawSprite_YPOS, 1, 0, 1);
+    drawPixel(19 + drawSprite_XPOS, 24 + drawSprite_YPOS, 255, 126, 0);
+    drawPixel(20 + drawSprite_XPOS, 24 + drawSprite_YPOS, 255, 126, 0);
+    drawPixel(21 + drawSprite_XPOS, 24 + drawSprite_YPOS, 1, 0, 0);
+
+    drawPixel(13 + drawSprite_XPOS, 25 + drawSprite_YPOS, 1, 0, 0);
+    drawPixel(14 + drawSprite_XPOS, 25 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(15 + drawSprite_XPOS, 25 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(16 + drawSprite_XPOS, 25 + drawSprite_YPOS, 1, 0, 0);
+    drawPixel(18 + drawSprite_XPOS, 25 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(19 + drawSprite_XPOS, 25 + drawSprite_YPOS, 0, 0, 1);
+    drawPixel(20 + drawSprite_XPOS, 25 + drawSprite_YPOS, 1, 1, 0);
+    drawPixel(21 + drawSprite_XPOS, 25 + drawSprite_YPOS, 0, 0, 1);
+
+    drawPixel(15 + drawSprite_XPOS, 26 + drawSprite_YPOS, 0, 0, 0);
+    drawPixel(19 + drawSprite_XPOS, 26 + drawSprite_YPOS, 1, 0, 0);
+
+    drawPixel(14 + drawSprite_XPOS, 27 + drawSprite_YPOS, 0, 1, 0);
+    drawPixel(15 + drawSprite_XPOS, 27 + drawSprite_YPOS, 0, 0, 1);
+    drawPixel(19 + drawSprite_XPOS, 27 + drawSprite_YPOS, 1, 1, 0);
+    drawPixel(20 + drawSprite_XPOS, 27 + drawSprite_YPOS, 0, 1, 1);
+}
