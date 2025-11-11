@@ -27,7 +27,17 @@ using namespace std;
 // ! ---------------------------------------
 // ! DO NOT GALAW GALAW ALSO WAG NIYO MANUALLY PALITAN VARIABLES
 
+// Eto wag talaga gawin
 int ticks = 0;
+
+// Pixel canvas size
+const int PIXEL_WIDTH = 64;
+const int PIXEL_HEIGHT = 36;
+
+
+// Window size
+const int WIN_WIDTH = 1920;
+const int WIN_HEIGHT = 1080;
 
 
 // ! ---------------------------------------
@@ -95,10 +105,18 @@ para balik sa simula
 
 also 1,2,3,4,5,6 sa keyboard pupunta ka sa ibat ibang scene
 
-
-
 */
 
+
+// gagawa ng pixel sa x and y location (1920 x 1080 reference)
+void drawPixel(int x, int y);
+/*
+Example Use:
+glColor3f(1.0f, 0.0f, 0.0f); // red
+drawPixel(0, 0);              // top-left pixel
+drawPixel(32, 18);            // center pixel
+drawPixel(63, 35);            // bottom-right pixel
+*/
 
 
 
@@ -140,6 +158,13 @@ void Display_Intro() {
     glColor3f(0.0f, 0.0f, 0.0f);
     drawText(0, 0, "MARK INTRO SCENE SCANDAL");
 
+
+    glColor3f(1.0f, 0.0f, 0.0f); // red
+    drawPixel(10, 12);              // top-left pixel
+    drawPixel(32, 18);            // center pixel
+    drawPixel(60, 35);            // bottom-right pixel
+
+
 }
 
 
@@ -173,6 +198,8 @@ void Display_Chapter_4() {
     // TODO: Mark dodges falling volcanic debris
     glColor3f(0.0f, 0.0f, 0.0f);
     drawText(0, 0, "MARK IWAS HULOG ROCKY ROADS");
+
+
 }
 
 
@@ -238,6 +265,11 @@ void Display_Whole_Scene() {
 // Intro Scene (Tutorial + Breakfast)
 void KB_Intro(unsigned char key) {
     // TODO: Show title, controls, and Mark eating breakfast
+
+
+
+
+
 
 }
 
@@ -362,6 +394,44 @@ void drawText(float x, float y, const std::string& text)
     for (char c : text)
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
 }
+
+
+
+
+// ? Draw a single pixel on the 64x36 pixel canvas
+// ? x, y are in canvas coordinates (0..Pixel_width, 0..pixel_height)
+void drawPixel(int x, int y) {
+    // Size of each pixel in screen space
+    float pixelWidth = WIN_WIDTH / (float)PIXEL_WIDTH;
+    float pixelHeight = WIN_HEIGHT / (float)PIXEL_HEIGHT;
+
+    // Convert canvas coordinates to screen coordinates
+    float screenX = x * pixelWidth;
+    float screenY = y * pixelHeight;
+
+    // Convert screen coordinates to normalized OpenGL coordinates (-1 to 1)
+    float nx = (screenX / WIN_WIDTH) * 2.0f - 1.0f;
+    float ny = 1.0f - (screenY / WIN_HEIGHT) * 2.0f;
+
+    float halfSizeX = (pixelWidth / WIN_WIDTH);
+    float halfSizeY = (pixelHeight / WIN_HEIGHT);
+
+    // Draw a quad
+    glBegin(GL_QUADS);
+    glVertex2f(nx - halfSizeX, ny - halfSizeY);
+    glVertex2f(nx + halfSizeX, ny - halfSizeY);
+    glVertex2f(nx + halfSizeX, ny + halfSizeY);
+    glVertex2f(nx - halfSizeX, ny + halfSizeY);
+    glEnd();
+}
+/*
+Example Use:
+glColor3f(1.0f, 0.0f, 0.0f); // red
+drawPixel(0, 0);              // top-left pixel
+drawPixel(32, 18);            // center pixel
+drawPixel(63, 35);            // bottom-right pixel
+*/
+
 
 
 
