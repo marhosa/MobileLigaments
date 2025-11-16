@@ -453,6 +453,9 @@ void Display_Chapter_3() {
   appearAt(9300, 999999, meteorSmall);
 
 
+  // Mark dito ka mag add messages
+
+
 }
 
 // Chapter 4: Volcanic Eruption
