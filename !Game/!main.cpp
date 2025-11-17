@@ -1,7 +1,7 @@
 
 // ! Debugging purposes why its on top
 // ! ALSO this runs the code, do not remove
-int ticks = 11380;
+int ticks = 0;
 
 /*
 Use Better Comments Extension para ez readability
@@ -434,31 +434,6 @@ void helper_fallMeteor(
 
 
 
-// Helper: slow falling big meteor
-// xStartRange: minimum X spawn
-// xEndRange: maximum X spawn
-// speed: pixels per frame (smaller → slower)
-void helper_fallMeteorBig(int xStartRange, int xEndRange, int speed) {
-    // Initialize only once per "fall"
-    static bool initialized = false;
-    if (!initialized) {
-        meteorBig_XPOS = xStartRange + rand() % (xEndRange - xStartRange + 1);
-        meteorBig_YPOS = -20; // Start at top
-        initialized = true;
-    }
-
-    // Move meteor down
-    meteorBig_YPOS += speed;  // Y increases → down
-
-    // Reset if it falls below screen
-    if (meteorBig_YPOS > PIXEL_HEIGHT) {
-        meteorBig_XPOS = xStartRange + rand() % (xEndRange - xStartRange + 1);
-        meteorBig_YPOS = -20; // restart at top
-    }
-}
-
-
-
 // Chapter 3: Earthquake
 void Display_Chapter_3() {
 
@@ -475,8 +450,7 @@ void Display_Chapter_3() {
   // meteorBig(); shinra tensei
 
   helper_fallMeteor(-40, 40, 1.5);
-  helper_fallMeteorBig(-40, 40, 3);
-  appearAt(9950, 999999, meteorSmall);
+  appearAt(9300, 999999, meteorSmall);
 
 
   // Mark dito ka mag add messages
@@ -493,9 +467,6 @@ void Display_Chapter_3() {
   messageBox(11000, 11200, "MARK: DI MOKO MAPIPIGILAN MOSKOV USER AKO");
   messageBox(11400, 11600, "VOLCANO: Ganyanan pala gegegege");
   //big meteor fall
-  appearAt(11600, 999999, meteorBig);
-
-  messageBox(11850, 9999999, "MARK: Gagstoinks Patay naku wahaha joke");
 }
 
 // Chapter 4: Volcanic Eruption
@@ -510,6 +481,15 @@ void Display_Ending() {
   // TODO: Mark finds expired bread, humorous credits roll
   glColor3f(0.0f, 0.0f, 0.0f);
   drawText(0, 0, "MARK NAMATAY THANK YOU FOR PLAYING MLBB");
+  // pumasok si Mark sa bahay after makalayas sa lahat ng natural na disaster
+  messageBox(15200, 15500, "MARK: Lezzgo mga lods nakauwi din ako");
+  messageBox(15600, 15900, "MARK: nasan na ang aking peyborit pandesal");
+  messageBox(16000, 16300, "MARK: WKWKWKWKWKWKWKWKWKW BREAD");
+  // mark eat bread
+  messageBox(16400, 16700, "MARK: *COUGH* *COUGH* AGH EXPIRED NA PALA TO");
+  messageBox(16800, 17100, "MARK: Oof");
+  //mrak final end rip scene
+  messageBox(17200, 17800, "Here Lies Mark, Cause of Death: Expired Bread");
 }
 
 // Basically  Access to all scenes andito
