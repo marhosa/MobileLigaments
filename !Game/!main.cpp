@@ -1,7 +1,7 @@
 
 // ! Debugging purposes why its on top
 // ! ALSO this runs the code, do not remove
-int ticks = 17000;
+int ticks = 0;
 
 /*
 Use Better Comments Extension para ez readability
