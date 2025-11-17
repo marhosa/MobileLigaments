@@ -1,6 +1,4 @@
-<p align="center">
-<img width="1899" height="989" alt="image" src="https://github.com/user-attachments/assets/4fd121b6-d111-4f2e-9f6f-d08bca8c3e0a" />
-</p>
+
 
 # One Last Bite - MobileLigaments
 ### Where is the Main Game?
